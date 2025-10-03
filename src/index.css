@@ -2,87 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Tic-Tac-Toe Game Design System - Gaming Aesthetic */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Gaming Background System */
+    --background: 240 10% 3.9%;
+    --background-secondary: 240 6% 10%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Gaming Cards & Surfaces */
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --card-glass: 240 10% 12%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Gaming Primary Colors - Purple/Blue Theme */
+    --primary: 263 87% 65%;
+    --primary-glow: 263 87% 75%;
+    --primary-dark: 263 87% 45%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Gaming Secondary Colors */
+    --secondary: 240 6% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --secondary-glow: 240 6% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Gaming Accent Colors */
+    --accent: 180 100% 50%;
+    --accent-foreground: 240 10% 3.9%;
+    --accent-glow: 180 100% 60%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Game State Colors */
+    --success: 142 76% 36%;
+    --success-glow: 142 76% 46%;
+    --warning: 38 92% 50%;
+    --warning-glow: 38 92% 60%;
+    --destructive: 0 84% 60%;
+    --destructive-glow: 0 84% 70%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Gaming Borders & Inputs */
+    --border: 240 6% 20%;
+    --border-glow: 263 87% 65%;
+    --input: 240 6% 15%;
+    --ring: 263 87% 65%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --radius: 1rem;
 
-    --radius: 0.5rem;
+    /* Gaming Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(263 87% 65%), hsl(263 87% 45%));
+    --gradient-secondary: linear-gradient(135deg, hsl(240 6% 15%), hsl(240 6% 25%));
+    --gradient-accent: linear-gradient(135deg, hsl(180 100% 50%), hsl(180 100% 60%));
+    --gradient-background: linear-gradient(135deg, hsl(240 10% 3.9%), hsl(240 6% 10%));
 
-    --sidebar-background: 0 0% 98%;
+    /* Gaming Shadows & Effects */
+    --shadow-game: 0 8px 32px rgba(139, 92, 246, 0.3);
+    --shadow-glow: 0 0 20px rgba(139, 92, 246, 0.5);
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Muted Colors */
+    --muted: 240 6% 15%;
+    --muted-foreground: 240 5% 64.9%;
 
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -101,5 +83,125 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    background: var(--gradient-background);
+  }
+}
+
+/* Gaming Component Styles */
+@layer components {
+  /* Card Game Style */
+  .card-game {
+    @apply bg-card backdrop-blur-xl border-2 border-border/50 rounded-2xl shadow-lg;
+    background: linear-gradient(135deg, hsl(var(--card-glass)), hsl(var(--secondary)));
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-game:hover {
+    border-color: hsl(var(--primary-glow));
+    box-shadow: var(--shadow-game);
+  }
+
+  /* Info Card Style */
+  .info-card {
+    @apply bg-secondary/50 backdrop-blur-sm border border-border/30 rounded-xl;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .info-card:hover {
+    @apply border-primary/50;
+  }
+
+  /* Gaming Buttons */
+  .btn-game-primary {
+    @apply bg-primary text-primary-foreground font-bold shadow-lg;
+    background: var(--gradient-primary);
+    box-shadow: var(--shadow-game);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-game-primary:hover:not(:disabled) {
+    @apply scale-105;
+    box-shadow: var(--shadow-glow);
+  }
+
+  .btn-game-secondary {
+    @apply bg-secondary/80 text-foreground border-2 border-border/50 font-semibold;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-game-secondary:hover:not(:disabled) {
+    @apply border-primary bg-secondary scale-105;
+    box-shadow: 0 4px 16px rgba(139, 92, 246, 0.2);
+  }
+
+  /* Game Cell - Bar Style (Traditional Tic-Tac-Toe) */
+  .game-cell-bar {
+    @apply w-full h-full flex items-center justify-center cursor-pointer;
+    @apply transition-all duration-200;
+    @apply hover:bg-primary/10;
+  }
+
+  .game-cell-bar:not(:disabled):hover {
+    @apply scale-110;
+  }
+
+  .game-cell-bar:disabled {
+    @apply cursor-not-allowed;
+  }
+
+  .game-cell-winning {
+    @apply bg-primary/20;
+    animation: pulse-glow 1.5s infinite;
+  }
+
+  /* Hover Scale Effect */
+  .hover-scale {
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-scale:hover:not(:disabled) {
+    @apply scale-105;
+  }
+}
+
+/* Gaming Animations */
+@layer utilities {
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 10px rgba(139, 92, 246, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.8);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.4s ease-out;
   }
 }
