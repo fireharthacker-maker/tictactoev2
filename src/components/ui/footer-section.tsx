@@ -6,7 +6,6 @@ import { FacebookIcon, TwitterIcon, InstagramIcon, LinkedinIcon, YoutubeIcon, Ga
 
 interface FooterLink {
 	title: string;
-	href: string;
 	icon?: React.ComponentType<{ className?: string }>;
 }
 
@@ -19,38 +18,38 @@ const footerLinks: FooterSection[] = [
 	{
 		label: 'Game',
 		links: [
-			{ title: 'Play Now', href: '/' },
-			{ title: 'How to Play', href: '/#how-to-play' },
-			{ title: 'Strategies', href: '/#strategies' },
-			{ title: 'Game Modes', href: '/#game-modes' },
+			{ title: 'Play Now' },
+			{ title: 'How to Play' },
+			{ title: 'Strategies' },
+			{ title: 'Game Modes' },
 		],
 	},
 	{
 		label: 'About',
 		links: [
-			{ title: 'About Us', href: '/about' },
-			{ title: 'Contact', href: '/contact' },
-			{ title: 'Privacy Policy', href: '/privacy-policy' },
-			{ title: 'Terms of Service', href: '/terms' },
+			{ title: 'About Us' },
+			{ title: 'Contact' },
+			{ title: 'Privacy Policy' },
+			{ title: 'Terms of Service' },
 		],
 	},
 	{
 		label: 'Resources',
 		links: [
-			{ title: 'Game Tips', href: '/#tips' },
-			{ title: 'AI Algorithm', href: '/#ai' },
-			{ title: 'FAQ', href: '/faq' },
-			{ title: 'Support', href: '/support' },
+			{ title: 'Game Tips' },
+			{ title: 'AI Algorithm' },
+			{ title: 'FAQ' },
+			{ title: 'Support' },
 		],
 	},
 	{
 		label: 'Follow Us',
 		links: [
-			{ title: 'Facebook', href: '#', icon: FacebookIcon },
-			{ title: 'Twitter', href: '#', icon: TwitterIcon },
-			{ title: 'Instagram', href: '#', icon: InstagramIcon },
-			{ title: 'YouTube', href: '#', icon: YoutubeIcon },
-			{ title: 'LinkedIn', href: '#', icon: LinkedinIcon },
+			{ title: 'Facebook', icon: FacebookIcon },
+			{ title: 'Twitter', icon: TwitterIcon },
+			{ title: 'Instagram', icon: InstagramIcon },
+			{ title: 'YouTube', icon: YoutubeIcon },
+			{ title: 'LinkedIn', icon: LinkedinIcon },
 		],
 	},
 ];
@@ -82,13 +81,12 @@ export function Footer() {
 								<ul className="text-muted-foreground mt-4 space-y-2 text-sm">
 									{section.links.map((link) => (
 										<li key={link.title}>
-											<a
-												href={link.href}
-												className="hover:text-foreground inline-flex items-center transition-all duration-300 hover:translate-x-0.5"
+											<span
+												className="hover:text-foreground inline-flex items-center transition-all duration-300 hover:translate-x-0.5 cursor-pointer"
 											>
 												{link.icon && <link.icon className="me-1.5 size-4" />}
 												{link.title}
-											</a>
+											</span>
 										</li>
 									))}
 								</ul>
