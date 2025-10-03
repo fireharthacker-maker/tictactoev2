@@ -1,5 +1,6 @@
 import TicTacToe from '@/components/TicTacToe';
 import { Card } from '@/components/ui/card';
+import { Footer } from '@/components/ui/footer-section';
 
 const Index = () => {
   return (
@@ -54,7 +55,7 @@ const Index = () => {
           </div>
 
           {/* Info Section - How to Play */}
-          <div className="max-w-5xl mx-auto mt-8 grid md:grid-cols-2 gap-4">
+          <div id="how-to-play" className="max-w-5xl mx-auto mt-8 grid md:grid-cols-2 gap-4">
             <Card className="info-card p-5">
               <h2 className="text-xl font-bold mb-3 text-primary">🎮 How to Play</h2>
               <div className="space-y-2 text-sm text-muted-foreground">
@@ -77,7 +78,7 @@ const Index = () => {
           </div>
 
           {/* Strategy Tips */}
-          <div className="max-w-5xl mx-auto mt-4">
+          <div id="strategies" className="max-w-5xl mx-auto mt-4">
             <Card className="info-card p-5">
               <h2 className="text-xl font-bold mb-3 text-success">🎯 Winning Strategies</h2>
               <div className="grid sm:grid-cols-2 gap-4 text-sm text-muted-foreground">
@@ -127,6 +128,9 @@ const Index = () => {
               <div className="text-muted-foreground text-xs">Advertisement</div>
             </div>
           </div>
+
+          {/* Footer Section */}
+          <Footer />
         </main>
 
         {/* Right Ad Sidebar - Wide Skyscraper (160x600) or Wide Skyscraper (120x600) */}
